@@ -1,2 +1,2 @@
-# yuezk.github.com
+# yuezk.github.io
 My personal blog
