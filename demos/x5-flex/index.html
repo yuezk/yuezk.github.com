@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>X5 flex demo</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .tabs {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            margin: 20px;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid #009BE1;
+        }
+
+        .tabs li {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+                -ms-flex: 1;
+                    flex: 1;
+            font-size: 14px;
+            color: #009BE1;
+            border-right: 1px solid #009BE1;
+        }
+
+        .tabs li:last-child {
+            border-right: none;
+        }
+
+        .tabs li:target {
+            background: #009BE1;
+        }
+
+        .tabs li:target a {
+            color: #fff;
+        }
+
+        .tabs a {
+            display: block;
+            padding: 10px 0 ;
+            color: #009BE1;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="tabs">
+        <li id="all"><a href="#all">全部订单</a></li>
+        <li id="unconfirmed"><a href="#unconfirmed">未确认</a></li>
+        <li id="waiting"><a href="#waiting">待收货</a></li>
+    </ul>
+</body>
+</html>
