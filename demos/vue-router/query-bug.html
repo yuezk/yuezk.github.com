@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Vue Router this.$route.query bug</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        button {
+            width: 200px;
+            padding: 0.8em;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            margin-top: 100px;
+            background: #65d3e3;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <router-view></router-view>
+    </div>
+    <script src="https://cdn.jsdelivr.net/vue/1.0.8/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/vue.router/0.7.6/vue-router.min.js"></script>
+    <script>
+        var App = Vue.extend({});
+        Vue.use(VueRouter);
+        var router = new VueRouter();
+
+        router.map({
+            home: {
+                component: {
+                    template: '<button @click="handleClick">Click me</button>',
+                    methods: {
+                        handleClick: function () {
+                            alert(JSON.stringify(this.$route.query));
+                        }
+                    }
+                }
+            }
+        });
+
+        router.redirect({
+            '*': 'home'
+        });
+
+        router.start(App, '#app');
+    </script>
+</body>
+</html>
